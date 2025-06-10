@@ -1,0 +1,18 @@
+.subTaskWrapper{
+    margin-left: 36px;
+}
+.subTask{
+    display: flex;
+    align-items: center;
+    background-color: bisque;
+    padding: 4px 12px;
+    border-radius: 5px;
+    gap: 1em;
+}
+.subTask h3{
+    flex: 1;
+}
+.subTask input{
+    height: 1.5em;
+    width: 1.5em;
+}
