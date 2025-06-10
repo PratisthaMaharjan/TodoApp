@@ -52,6 +52,8 @@ class TaskStructure {
         tempData[taskIndex].subTask.splice(subTaskIndex, 1)
         this.writeData()
     }
+
+    
 }
 
 export default TaskStructure

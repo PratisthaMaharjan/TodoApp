@@ -30,6 +30,11 @@ const AddTask = ({ taskStructure }) =>{
             reminderTime: e.target.reminder.value,
             subTask:[]
         })
+        e.target.title.value = ''
+        e.target.deadline.value = null
+        e.target.reminder.value = null
+        
+        setAddTaskState(false)
     }
 
     return(

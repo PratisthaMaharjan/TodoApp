@@ -1,3 +1,40 @@
+.container{
+    /* border: 1px solid black; */
+    
+}
+
+.titleContainer{
+    display: flex;
+    align-items: center;
+    background-color: #9ab8ba;
+}
+
+.titleContainer h2{
+    flex: 1;
+}
+
+.titleContainer span{
+    border: 1px solid turquoise;
+    border-radius: 12px;
+    padding: 2px 12px;
+}
+
+.strikethrough{
+    text-decoration: line-through;
+}
+
+.pending{
+    background-color: #ff000045;
+}
+
+.inProgress{
+    background-color: #ffff0045;
+}
+
+.completed{
+    background-color: #00800045;
+}
+
 .subTaskWrapper{
     margin-left: 36px;
 }
@@ -9,6 +46,7 @@
     border-radius: 5px;
     gap: 1em;
 }
+/* padding and stuf? */
 .subTask h3{
     flex: 1;
 }

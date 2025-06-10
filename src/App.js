@@ -26,19 +26,17 @@ function App() {
         data={data}
         taskStructure={taskStructureRef.current}
         onSelect={(selectedIndex) => setSelectedIndex(selectedIndex)}
-        />
-      {/* {selectedIndex != -1 ? ( */}
-        <Sidebar 
-          deleteCallback={() => {
-            setSelectedIndex(-1)
-            taskStructureRef.current.deleteTask(selectedIndex)
-          }}
-          index={selectedIndex}
-          data={data[selectedIndex]}
-          taskStructure={taskStructureRef.current}
-        />
-      {/* ) : <></> */}
-      {/* } */}
+      />
+
+      <Sidebar 
+        deleteCallback={() => {
+          setSelectedIndex(-1)
+          taskStructureRef.current.deleteTask(selectedIndex)
+        }}
+        index={selectedIndex}
+        data={data[selectedIndex]}
+        taskStructure={taskStructureRef.current}
+      />
       
     </div>
   );

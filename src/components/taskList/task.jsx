@@ -14,8 +14,8 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
     taskStructure.addSubTask(taskIndex, newSubTaskTitle)
   }
 
-  const handleSubTaskCheckboxChange = (subTaskIndex, e) => {
-    taskStructure.updateSubTask(taskIndex, subTaskIndex, e.target.checked)
+  const handleSubTaskCheckboxChange = (subTaskIndex) => {
+    taskStructure.updateSubTask(taskIndex, subTaskIndex, !data.subTask[subTaskIndex].completed)
   }
 
   const subTaskDeleteHandler = (subTaskIndex) => {
@@ -23,10 +23,10 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
   }
 
   return (
-    <div className={`${hide ? styles.hide : ''} ${selected ? styles.selected : ''}`}>
-      <div>
+    <div className={`${styles.container} ${hide ? styles.hide : ''} ${selected ? styles.selected : ''}`}>
+      <div className={styles.titleContainer}>
         <h2>{data.title}</h2>
-        <span>{data.status}</span>
+        <span className={ data.status === 'Pending' ? styles.pending : data.status === 'In progress' ? styles.inProgress : styles.completed }>{data.status}</span>
       </div>
 
       <div className={styles.subTaskWrapper}>
@@ -34,10 +34,10 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
           <div className={styles.subTask} key={index}>
             <input
               type="checkbox"
-              onChange={(e) => handleSubTaskCheckboxChange(index, e)}
-              defaultChecked={subTask.checked}
+              onChange={() => handleSubTaskCheckboxChange(index)}
+              defaultChecked={subTask.completed}
             />
-            <h3>{subTask.title}</h3>
+            <h3 className={subTask.completed ? styles.strikethrough : ''}>{subTask.title}</h3>
             <button onClick={() => subTaskDeleteHandler(index)}>Delete</button>
           </div>
         ))}
