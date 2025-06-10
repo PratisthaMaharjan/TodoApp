@@ -7,7 +7,7 @@ import TaskStructure from './lib/taskStructure';
 function App() {
   const [data, setData] = useState([]);
   const taskStructureRef = useRef(null);
-
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   useEffect(() => {
     taskStructureRef.current = new TaskStructure((val) => setData(val));
@@ -22,10 +22,24 @@ function App() {
   return (
     <div className={styles.container}>
       <TaskList 
+        selectedIndex={selectedIndex}
         data={data}
-        addTask={(obj) => taskStructureRef.current.addTask(obj)}
-      />
-      <Sidebar />
+        taskStructure={taskStructureRef.current}
+        onSelect={(selectedIndex) => setSelectedIndex(selectedIndex)}
+        />
+      {/* {selectedIndex != -1 ? ( */}
+        <Sidebar 
+          deleteCallback={() => {
+            setSelectedIndex(-1)
+            taskStructureRef.current.deleteTask(selectedIndex)
+          }}
+          index={selectedIndex}
+          data={data[selectedIndex]}
+          taskStructure={taskStructureRef.current}
+        />
+      {/* ) : <></> */}
+      {/* } */}
+      
     </div>
   );
 }

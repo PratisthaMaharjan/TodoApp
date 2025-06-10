@@ -4,39 +4,15 @@ class TaskStructure {
         this.data = []
     }
     readData(){
-        this.data = [{
-            title: 'task1',
-            created: null,
-            status: 'todo',
-            deadline: null,
-            progressTime: null,
-            finishedTime: null,
-            reminderTime: null,
-            subTask:[
-                {
-                    title: 'sub task1',
-                    completed: false
-                }
-            ]
-        },
-        {
-            title: 'task1',
-            created: null,
-            status: 'todo',
-            deadline: null,
-            progressTime: null,
-            finishedTime: null,
-            reminderTime: null,
-            subTask:[
-                {
-                    title: 'sub task1',
-                    completed: false
-                }
-            ]
-        }]
+        this.data = JSON.parse(localStorage.getItem("todo-items"))
+        if (!this.data) {
+            this.data = []
+            this.writeData()
+        }
         this.dataCallback([...this.data])
     }
     writeData(){
+        localStorage.setItem("todo-items", JSON.stringify(this.data))
         this.dataCallback([...this.data])
     }
     addTask(obj){
@@ -44,8 +20,37 @@ class TaskStructure {
         console.log(this.data, obj) 
         this.writeData()
     }
-    addSubTask(){
+    updateTask(index, updatedTask) {
+        this.data = this.data.map((task, i) => 
+            i === index ? { ...task, ...updatedTask } : task
+        );
+        this.writeData()
+    }
+
+    deleteTask(taskIndex){
+        this.data.splice(taskIndex, 1)
+        this.writeData()
+        console.log("hello Raman!", taskIndex)
+    }
+    
+    addSubTask(index, title){
         console.log("adding subtask")
+        this.data = this.data.map((task, i) => 
+            i === index ? { ...task, subTask:[...task.subTask, { title:title, completed:false }] } : task
+        );
+        this.writeData()
+    }
+
+    updateSubTask(taskIndex, subTaskIndex, state){
+        const tempData = [...this.data]
+        tempData[taskIndex].subTask[subTaskIndex].completed = state
+        this.writeData()
+    }
+    
+    deleteSubTask(taskIndex, subTaskIndex){
+        const tempData = [...this.data]
+        tempData[taskIndex].subTask.splice(subTaskIndex, 1)
+        this.writeData()
     }
 }
 
