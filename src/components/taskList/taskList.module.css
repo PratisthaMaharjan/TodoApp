@@ -14,6 +14,44 @@
 .main{
     width: 100%;
     min-height: 100%;
-    background-color: gray;
+    background-color: #FFFFFF;
     padding: 16px;
+}
+
+.addTaskContainer {
+    width: 100%;
+    background-color: #9ab8ba;
+    border-radius: 5px;
+}
+
+.addTaskContainer > button {
+    outline: none;
+    border: none;
+    width: 100%;
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 10px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.addTaskContainer > button:hover {
+    background-color: #9ab8ba58;
+}
+
+.addTaskContainer form {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.addTaskContainer form span {
+    display: inline-block;
+    width: 200px;
+}
+
+.addTaskContainer form input {
+    outline: none;
+    border: none;
 }

@@ -76,7 +76,6 @@ const Sidebar = ({ index, data, taskStructure, deleteCallback }) => {
         <option value="Completed">Completed</option>
       </select>
 
-      <button type="button" onClick={deleteCallback}>Delete</button>
 
       <input name="title" value={formState.title} onChange={handleChange} />
 
@@ -132,6 +131,7 @@ const Sidebar = ({ index, data, taskStructure, deleteCallback }) => {
       </div>
 
       <button type="submit">Submit</button>
+      <button type="button" onClick={deleteCallback}>Delete</button>
     </form>
   )
 }

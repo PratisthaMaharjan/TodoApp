@@ -42,7 +42,7 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
           </div>
         ))}
 
-        <div>
+        <div className={styles.addSubTaskContainer}>
           {addSubTaskState ? (
             <form onSubmit={submitSubTask}>
               <input
@@ -54,7 +54,7 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
               <button type='submit'>Submit</button>
             </form>
           ) : (
-            <button onClick={() => setAddSubTaskState(true)}>Add subtask</button>
+            <button className={styles.addSubTaskButton} onClick={() => setAddSubTaskState(true)}>Add subtask</button>
           )}
         </div>
       </div>

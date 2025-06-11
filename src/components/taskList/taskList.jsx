@@ -38,11 +38,11 @@ const AddTask = ({ taskStructure }) =>{
     }
 
     return(
-        <div>
+        <div className={styles.addTaskContainer}>
             {addTaskState? <form onSubmit={addTaskHandler}>
-                <label>Title:<input type='text' name='title' required/></label>
-                <label>Deadline:<input type='datetime-local' name='deadline'/></label>
-                <label>Reminder:<input type='datetime-local' name='reminder'/></label>
+                <label><span>Title:</span><input type='text' name='title' required/></label>
+                <label><span>Deadline:</span><input type='datetime-local' name='deadline'/></label>
+                <label><span>Reminder:</span><input type='datetime-local' name='reminder'/></label>
                 <input type='submit'/>
             </form> : <button onClick={() => setAddTaskState(true)}>Add Task</button>}
         </div>
@@ -61,7 +61,6 @@ const TaskList = ({data, taskStructure, onSelect, selectedIndex }) => {
                     <option value='In progress'>In progress</option>
                     <option value='Completed'>Completed</option>
                 </select>
-                <button>Toggle</button>
             </nav>
 
             <main className={styles.main}>
