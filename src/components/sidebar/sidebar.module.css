@@ -1,7 +1,15 @@
 .container{
     padding: 16px;
-    width: 200px;
+    width: 350px;
     background: #6f8586;
+}
+
+.unselectedContainer{
+    padding: 16px;
+    width: 350px;
+    background: #6f8586;
+    text-align: center;
+    font-weight: bold;
 }
 
 .container input[name=title] {

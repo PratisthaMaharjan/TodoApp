@@ -1,6 +1,7 @@
 .container{
     display: flex;
     height: 100%;
+    /* width: 50%; */
     background-color: #F0F4F5 ;
     /* background-color: #CFE1E5; */
 }

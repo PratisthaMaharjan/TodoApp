@@ -66,7 +66,7 @@ const Sidebar = ({ index, data, taskStructure, deleteCallback }) => {
     taskStructure.updateTask(index, values)
   }
 
-  if (index === -1 || !data) return <></>
+  if (index === -1 || !data) return <div className={styles.unselectedContainer}>Please Select Task to edit</div>
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
