@@ -34,6 +34,7 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
           <div className={styles.subTask} key={index}>
             <input
               type="checkbox"
+              onClick={(e) => {e.stopPropagation()}}
               onChange={() => handleSubTaskCheckboxChange(index)}
               defaultChecked={subTask.completed}
             />
