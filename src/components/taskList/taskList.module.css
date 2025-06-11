@@ -55,3 +55,14 @@
     outline: none;
     border: none;
 }
+
+.addTaskContainer form input[type="submit"] {
+    outline: none;
+    border: none;
+    background-color: #5f797b;
+    font-weight: bold;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    align-self: flex-start;
+}

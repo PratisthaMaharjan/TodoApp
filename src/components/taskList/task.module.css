@@ -26,7 +26,7 @@
 
 .strikethrough{
     text-decoration: line-through;
-    color: gray;
+    color: #888888;
 }
 
 .pending{

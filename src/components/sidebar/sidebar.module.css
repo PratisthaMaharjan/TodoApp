@@ -8,15 +8,37 @@
     margin-top: 5px;
     margin-bottom: 12px;
     outline: none;
-    border: none;
-    padding: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .container > div {
     background-color: white;
     margin: 12px 0px;
-    padding: 12px 5px;
+    padding: 12px 6px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.container > div label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.container > div label input {
+    margin-top: 4px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: #f9f9f9;
 }
 
 .container button {
@@ -26,13 +48,13 @@
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-  }
+}
 
-  .container button[type="submit"] {
+.container button[type="submit"] {
     background-color: #9BBBAA; 
     margin-right: 8px;
-  }
+}
 
-  .container button[type="button"] {
+.container button[type="button"] {
     background-color: #C97C7C;
-  }
+}

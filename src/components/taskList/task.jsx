@@ -34,10 +34,7 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
           <div className={styles.subTask} key={index}>
             <input
               type="checkbox"
-              onChange={(e) =>{
-                e.stopPropagation()
-                handleSubTaskCheckboxChange(index)
-              } }
+              onChange={() => handleSubTaskCheckboxChange(index)}
               defaultChecked={subTask.completed}
             />
             <h3 className={subTask.completed ? styles.strikethrough : ''}>{subTask.title}</h3>
