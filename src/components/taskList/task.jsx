@@ -38,13 +38,16 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
               defaultChecked={subTask.completed}
             />
             <h3 className={subTask.completed ? styles.strikethrough : ''}>{subTask.title}</h3>
-            <button onClick={() => subTaskDeleteHandler(index)}>Delete</button>
+            <button onClick={(e) => {
+              e.stopPropagation()
+              subTaskDeleteHandler(index)
+            }}>Delete</button>
           </div>
         ))}
 
         <div className={styles.addSubTaskContainer}>
           {addSubTaskState ? (
-            <form onSubmit={submitSubTask}>
+            <form onSubmit={submitSubTask} onClick={(e) => e.stopPropagation()} >
               <input
                 type='text'
                 value={newSubTaskTitle}
@@ -54,7 +57,10 @@ const Task = ({ data, taskIndex, taskStructure, hide, selected }) => {
               <button type='submit'>Submit</button>
             </form>
           ) : (
-            <button className={styles.addSubTaskButton} onClick={() => setAddSubTaskState(true)}>Add subtask</button>
+            <button className={styles.addSubTaskButton} onClick={(e) => {
+              e.stopPropagation()
+              setAddSubTaskState(true)
+            }}>Add subtask</button>
           )}
         </div>
       </div>

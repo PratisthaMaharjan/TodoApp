@@ -18,3 +18,21 @@
     padding: 12px 5px;
     border-radius: 5px;
 }
+
+.container button {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .container button[type="submit"] {
+    background-color: #9BBBAA; 
+    margin-right: 8px;
+  }
+
+  .container button[type="button"] {
+    background-color: #C97C7C;
+  }
